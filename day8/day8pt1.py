@@ -2,7 +2,7 @@ def num_antinodes(grid: list[str]) -> int:
     """calculates the number of antinodes in the map
 
     Args:
-        grid (list[str]): puzzle map. antennae are represented
+        grid (list[str]): puzzle map. antenna are represented
         by any ascii character or digit
 
     Returns:
@@ -11,12 +11,12 @@ def num_antinodes(grid: list[str]) -> int:
     # antinode locations as x, y pairs
     alocs: set[tuple[int]] = set()
 
-    # antennae indices
+    # antenna indices
     aix: dict[str, list[tuple[int]]] = {
         c: list() for c in set("".join(grid).replace(".", ""))
     }
 
-    # iterate through map and find antennae indices
+    # iterate through map and find antenna indices
     for y in range(len(grid)):
         for x in range(len(grid[y])):
             if grid[y][x] != ".":
@@ -27,7 +27,7 @@ def num_antinodes(grid: list[str]) -> int:
     for a, locs in aix.items():
         # loop through each location of an antenna
         for i in range(len(locs)):
-            # loop through each other antennae of same freq
+            # loop through each other antenna of same freq
             for i2 in range(len(locs)):
                 if i != i2:
                     # substract distance to find location if one antenna is
